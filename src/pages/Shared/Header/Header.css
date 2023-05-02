@@ -1,0 +1,13 @@
+.navbar{
+    border-bottom: 3px solid #02a11d;
+    background: #292b2c;
+    opacity: 0.8;
+}
+.foodiee{
+    color: #ff0505;
+    font-weight: bold;
+}
+.foodiee:hover{
+    color: #c50606;
+    font-weight: bold;
+}

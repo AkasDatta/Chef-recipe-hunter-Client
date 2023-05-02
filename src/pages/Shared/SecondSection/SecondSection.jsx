@@ -13,9 +13,10 @@ const SecondSection = () => {
                         <Row>
                             <Col lg={6} md={12}>
                                 <h1 className="mt-5 pt-5 pb-3 fw-bold">The Story</h1>
-                                <h5 className="text-light"> Lorem Ipsum is simply dummying text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </h5>
+                                <h5 className="text-light"> The restaurant is a family-owned business that has been serving the community for over 20 years. It all started with a passion for cooking and sharing delicious meals with others. Over the years, the restaurant has become known for its warm atmosphere and exceptional cuisine. </h5>
+                                <h5 className="text-light"> The menu features a variety of dishes that are made from fresh, locally-sourced ingredients. From classic comfort food to creative, modern dishes, there is something for everyone to enjoy. The chefs take pride in crafting each dish with care and attention to detail, ensuring that every bite is a memorable experience.</h5>
                                 <br />
-                                <h5 className="text-light"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis aliquam sed cum, sunt, quia dicta? Animi, commodi, neque incidunt non atque aliquid voluptates nostrum, inventore tenetur asperiores a necessitatibus ut.</h5>
+                                <h5 className="text-light"> Whether you're stopping in for a quick lunch or celebrating a special occasion, the restaurant is the perfect destination. The friendly staff is always ready to welcome you and make you feel at home. Come visit us and experience the delicious food and warm hospitality for yourself.</h5>
                             </Col>
                             <Col lg={6} md={12} className="pt-5">
                                 <img src={food} className="img-fluid mt-5 mb-5 rounded " alt="Create Your Passion" />

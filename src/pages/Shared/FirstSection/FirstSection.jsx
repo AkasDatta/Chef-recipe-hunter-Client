@@ -14,21 +14,21 @@ const FirstSection = () => {
                         <FaClipboardList className='fa' size={70} />
                         <h4 className="my-2">Your Order</h4>
                         <p className="lead mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ut facere blanditiis vitae, nobis assumenda?
+                        Thank you for placing your order with us. We will prepare and deliver it to you as soon as possible.
                         </p>
                     </Col>
                     <Col md={4} className="my-2">
                         <FaJava className='fa' size={70} />
                         <h4 className="my-2">We Cook & Deliver</h4>
                         <p className="lead mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ut facere blanditiis vitae, nobis assumenda?
+                        Freshly cooked meals delivered to your doorstep. Enjoy delicious and nutritious food from the comfort of your home.
                         </p>
                     </Col>
                     <Col md={4} className="my-2">
                         <FaUserCheck className='fa' size={70} />
                         <h4 className="my-2">Enjoy Mealtime Again</h4>
                         <p className="lead mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ut facere blanditiis vitae, nobis assumenda?
+                        Our meals are designed to be delicious and convenient, allowing you to enjoy mealtime again without any stress or hassle.
                         </p>
                     </Col>
                     </Row>

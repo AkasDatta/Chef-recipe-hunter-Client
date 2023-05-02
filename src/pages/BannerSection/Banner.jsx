@@ -13,7 +13,7 @@ const Banner = () => {
                             <Card bg="light" className="card-form text-center">
                             <Card.Body className='p-4'>
                                 <h1 className='fw-bold' style={{color: '#52A015'}}>Fully-Prepared & <br /> Delivered Fresh To Daily</h1>
-                                <p>Please fill out this from to register Lorem ipsum dolor sit amet <br /> consectetur adipisicing elit. Consequatur, animi! </p>
+                                <p>"Authentic cuisine, unforgettable experience - visit us today at [<span className='text-danger fw-bold'>Foodiee _</span>] !" <br /> </p>
                                 <Button variant="btn btn-outline-light btn-success border-success rounded-4" >Start A Plan</Button>
                             </Card.Body>
                             </Card>
