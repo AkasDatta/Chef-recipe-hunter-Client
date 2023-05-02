@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaCheck } from 'react-icons/fa';
 import './SecondSection.css';
 import food from '../../../assets/makingfood.jpg';
 

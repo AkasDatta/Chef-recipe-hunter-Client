@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import './Header.css'
-import { Form } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -16,15 +16,15 @@ const Header = () => {
                     </Nav>
                     <Nav className="ml-auto">
                         <Nav.Item>
-                            <Nav.Link href="#home-section">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/">Home</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#explore-head-section">Blog </Nav.Link>
+                            <Nav.Link as={Link} to="/blogs">Blog </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#explore-head-section">User Profile </Nav.Link>
+                            <Button variant="outline-success" className='px-4 mx-2'>Login</Button>
                         </Nav.Item>
-                       
+                     
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
