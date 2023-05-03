@@ -8,7 +8,6 @@ import SecondSection from '../pages/Shared/SecondSection/SecondSection';
 import ThirdSection from '../pages/Shared/ThirdSection/ThirdSection';
 import Category from '../pages/Shared/Category/Category';
 import { Outlet } from 'react-router-dom';
-// import Category from '../pages/Home/ChefCard/ChefCard';
 
 
 

@@ -5,7 +5,8 @@ import Blogs from "../pages/Shared/Blogs/Blogs";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import App from "../App";
 import Category from "../pages/Home/ChefCard/ChefCard";
-import RecipePage from "../pages/Home/RecipePage/RecipePage";
+import RecipePage from "../pages/Shared/RecipePage/RecipePage";
+
 
 
 const router = createBrowserRouter([
@@ -27,7 +28,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <RecipePage></RecipePage>
+                element: <RecipePage></RecipePage>,
+                loader: () => fetch('http://localhost:5000/categories')
+
             },
             {
                 path: '/blogs',
