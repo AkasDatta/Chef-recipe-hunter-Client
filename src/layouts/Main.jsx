@@ -6,20 +6,21 @@ import Banner from '../pages/BannerSection/Banner';
 import FirstSection from '../pages/Shared/FirstSection/FirstSection';
 import SecondSection from '../pages/Shared/SecondSection/SecondSection';
 import ThirdSection from '../pages/Shared/ThirdSection/ThirdSection';
+import Category from '../pages/Shared/Category/Category';
 import { Outlet } from 'react-router-dom';
+// import Category from '../pages/Home/ChefCard/ChefCard';
 
 
 
 const Main = () => {
     return (
         <div>
-            <Header></Header>
             <Banner></Banner>
+            <Category></Category>
+            <Outlet></Outlet>
             <FirstSection></FirstSection>
             <SecondSection></SecondSection>
             <ThirdSection></ThirdSection>
-            <Outlet></Outlet>
-            <Footer></Footer>
         </div>
     );
 };
