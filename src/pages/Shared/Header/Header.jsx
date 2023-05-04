@@ -12,7 +12,7 @@ const Header = () => {
         <div>   
             <Navbar bg="dark" variant="dark" expand="md" fixed="top">
                 <Container>
-                    <Navbar.Brand href="#home-section" className='foodiee'>Foodiee _</Navbar.Brand>
+                    <Navbar.Brand href="#home-section"><Link className='foodiee' as={Link} to="/">Foodiee _</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
