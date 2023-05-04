@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Container, Col, Button, Image, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
-import googleImage from '../../../assets/google.png'
+import googleImage from '../../../assets/google.png';
+import gitHubImage from '../../../assets/gitHub.png';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
@@ -10,7 +11,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const [show, setShow] = useState(false);
-    const {signIn, signInWithGoogle} = useContext(AuthContext);
+    const {signIn, signInWithGoogle, signInWithGithub} = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
@@ -63,6 +64,20 @@ const Login = () => {
         })
     }
 
+    const handleGitHubSignIn = () => {
+        signInWithGithub()
+        .then(result => {
+            const user = result.user;
+            navigate(from, {replace: true});
+            console.log(user)
+            setError('');
+            setSuccess('User has been created successfully');
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
+
     return (
             <Container className='login'>
                 <div className="signup-box">
@@ -71,6 +86,9 @@ const Login = () => {
                 <span>Don't Have an Account? <Link to="/register">Register</Link> </span>
                 <a onClick={handleGoogleSignIn} href="#" className="google-link">
                 <Image src={googleImage} alt="Google" />Continue with Google
+                </a>
+                <a onClick={handleGitHubSignIn} href="#" className="google-link">
+                <Image src={gitHubImage} alt="GitHub" />Continue with GitHub
                 </a>
                 <h4>or</h4>
                 <Form onSubmit={handleLogin}>

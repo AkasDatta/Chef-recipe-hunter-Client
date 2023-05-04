@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import './Register.css'
 import { Container, Row, Col, Button, Image, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import bannerImage from '../../../assets/flower.jpg'
 import googleImage from '../../../assets/google.png'
+import gitHubImage from '../../../assets/gitHub.png';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
@@ -11,7 +12,8 @@ const Register = () => {
     const [show, setShow] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-    const {createUser, signInWithGoogle} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const {createUser, signInWithGoogle, signInWithGithub} = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
 
     const handleRegister = event => {
@@ -60,6 +62,20 @@ const Register = () => {
         })
     }
 
+    const handleGitHubSignIn = () => {
+        signInWithGithub()
+        .then(result => {
+            const user = result.user;
+            navigate(from, {replace: true});
+            console.log(user)
+            setError('');
+            setSuccess('User has been created successfully');
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
+
     const handleAccepted = event => {
         setAccepted(event.target.checked)
     }
@@ -75,6 +91,9 @@ const Register = () => {
                         <span>Already Have an Account? <Link to="/login">Login</Link> </span>
                         <a onClick={handleGoogleSignIn} href="#" className="google-link">
                         <Image src={googleImage} alt="Google" />Continue with Google
+                        </a>
+                        <a onClick={handleGitHubSignIn} href="#" className="google-link">
+                        <Image src={gitHubImage} alt="GitHub" />Continue with GitHub
                         </a>
                         <h4>or</h4>
                         <Form onSubmit={handleRegister}>
