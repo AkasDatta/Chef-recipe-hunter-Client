@@ -8,7 +8,7 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+    const {signIn, signInWithGoogle} = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
@@ -45,7 +45,20 @@ const Login = () => {
             .catch(error => {
                 console.log(error);
             })
+    }
 
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+        .then(result => {
+            const loggedUser = result.user;
+            navigate(from, {replace: true});
+            console.log(loggedUser)
+            setError('');
+            setSuccess('User has been created successfully');
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     return (
@@ -54,7 +67,7 @@ const Login = () => {
                 <Col md={6} className="col-2">
                 <h2>Please Login</h2>
                 <span>Don't Have an Account? <Link to="/register">Register</Link> </span>
-                <a href="#" className="google-link">
+                <a onClick={handleGoogleSignIn} href="#" className="google-link">
                 <Image src={googleImage} alt="Google" />Continue with Google
                 </a>
                 <h4>or</h4>
