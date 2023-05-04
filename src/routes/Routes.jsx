@@ -48,7 +48,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><RecipePage></RecipePage></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/categories')
+                loader: () => fetch('https://chef-recipe-hunter-server-akasdatta.vercel.app/categories')
 
             },
             {
