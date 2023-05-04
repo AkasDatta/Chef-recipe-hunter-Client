@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import bannerImage from '../../../assets/flower.jpg'
 import googleImage from '../../../assets/google.png'
 import { AuthContext } from '../../../providers/AuthProvider';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
+    const [show, setShow] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const {createUser, signInWithGoogle} = useContext(AuthContext);
@@ -86,7 +88,13 @@ const Register = () => {
                                 <Form.Control type="email" name='email' placeholder="Enter your email" className="input-field" required/>
 
                             <label>Set Password</label>
-                                <Form.Control type="password" name='password' placeholder="Enter Password" className="input-field" required/>
+                                    <Form.Control type={show ? "text" : "password"} name='password' placeholder="Enter Password" className="input-field" required/>
+
+                                    <p onClick={() => setShow(!show)}>
+                                    {
+                                        show ? <span><FaEye className="FaEye mb-2"></FaEye></span>: <span><FaEyeSlash className="FaEye mb-2"></FaEyeSlash></span>
+                                    }
+                                    </p>
 
                             <Row>
                                 <div className='d-flex' name='accept'>
