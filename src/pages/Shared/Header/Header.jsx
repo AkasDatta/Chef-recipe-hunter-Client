@@ -6,7 +6,13 @@ import person4 from '../../../assets/person.jpg';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error))
+    }
 
     return (
         <div>   
@@ -29,7 +35,7 @@ const Header = () => {
                             </Nav.Item>}
                             <Nav.Item>
                                 {user ? 
-                                <Button variant="outline-success" className='px-4 mx-2'>Logout</Button>:
+                                <Button onClick={handleLogout} variant="outline-success" className='px-4 mx-2'>Logout</Button>:
                                 <Link to="/login">
                                     <Button variant="outline-success" className='px-4 mx-2'>Login</Button>
                                 </Link>}

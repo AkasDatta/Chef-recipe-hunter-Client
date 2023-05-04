@@ -1,11 +1,48 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './Register.css'
 import { Container, Row, Col, Button, Image, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import bannerImage from '../../../assets/flower.jpg'
 import googleImage from '../../../assets/google.png'
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const {createUser} = useContext(AuthContext);
+
+    const handleRegister = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        
+        //validate
+        if(!/(?=.*[A-Z])/.test(password)){
+            setError('Please add at least one uppercase');
+            return;
+        }
+        else if( password.length<6){
+            setError('Please add at least 6 characters in your password')
+            return;
+        }
+
+        console.log(name, photo, email, password);
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser)
+                setError('');
+                setSuccess('User has been created successfully');
+            })
+            .catch(error => {
+                console.log(error)
+                setError(error.message)
+            })
+
+    }
     return (
         <div>
             <Container className='login'>
@@ -20,34 +57,34 @@ const Register = () => {
                         <Image src={googleImage} alt="Google" />Continue with Google
                         </a>
                         <h4>or</h4>
-                        <Form>
-                        <label>Name</label>
-                            <Form.Control type="text" name='name' placeholder="Enter your name" className="input-field" required/>
+                        <Form onSubmit={handleRegister}>
+                            <label>Name</label>
+                                <Form.Control type="text" name='name' placeholder="Enter your name" className="input-field" required/>
 
-                        <label>Photo URL</label>
-                            <Form.Control type="text" name='photo' placeholder="Photo URL" className="input-field" required/>
+                            <label>Photo URL</label>
+                                <Form.Control type="text" name='photo' placeholder="Photo URL" className="input-field" required/>
 
-                        <label>Email Address</label>
-                            <Form.Control type="email" name='email' placeholder="Enter your email" className="input-field" required/>
+                            <label>Email Address</label>
+                                <Form.Control type="email" name='email' placeholder="Enter your email" className="input-field" required/>
 
-                        <label>Set Password</label>
-                            <Form.Control type="password" name='password' placeholder="Enter Password" className="input-field" required/>
+                            <label>Set Password</label>
+                                <Form.Control type="password" name='password' placeholder="Enter Password" className="input-field" required/>
 
-                        <Row>
-                            <div className='d-flex' name='accept'>
-                            <input type="checkbox" defaultChecked />
-                            <span>I Agree to the <a href="#">terms and conditions</a></span>
-                            </div>
-                        </Row>
+                            <Row>
+                                <div className='d-flex' name='accept'>
+                                <input type="checkbox" defaultChecked />
+                                <span>I Agree to the <a href="#">terms and conditions</a></span>
+                                </div>
+                            </Row>
 
-                        <Button className='loginbutton' type="submit">Register Now</Button>
+                            <Button className='loginbutton' type="submit">Register Now</Button>
 
-                        <Form.Text className="text-success">
-                            
-                        </Form.Text> <br />
-                        <Form.Text className="text-danger">
-                            
-                        </Form.Text>
+                            <Form.Text className="text-success">
+                                {success}
+                            </Form.Text> <br />
+                            <Form.Text className="text-danger">
+                                {error}
+                            </Form.Text>
                         </Form>            
                     </Col>
                 </div>
