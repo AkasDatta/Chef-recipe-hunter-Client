@@ -1,12 +1,12 @@
 #home-section{
     background: url(../../assets/bannerBg.jpg) no-repeat center top; background-size: cover;
     background-attachment: fixed;
-    min-height: 700px;
+    min-height: 720px;
 }
     
     #home-section    .dark-overlay{
         background: rgba(0,0,0,0.2);
-        min-height: 700px;
+        min-height: 720px;
     }
  
     #home-section    .card-form{

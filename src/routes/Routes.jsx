@@ -1,11 +1,12 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Home from "../pages/Home/Home/Home";
 import Blogs from "../pages/Shared/Blogs/Blogs";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import App from "../App";
-import Category from "../pages/Home/ChefCard/ChefCard";
 import RecipePage from "../pages/Shared/RecipePage/RecipePage";
+import Login from "../pages/Login/Login/Login";
+import Register from "../pages/Login/Register/Register";
 
 
 
@@ -25,6 +26,18 @@ const router = createBrowserRouter([
                     },
                    
                 ]
+            },
+            {
+                path: '/',
+                element: <Navigate to="/"></Navigate>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             },
             {
                 path: '/category/:id',

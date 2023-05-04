@@ -11,3 +11,8 @@
     color: #c50606;
     font-weight: bold;
 }
+.header-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
