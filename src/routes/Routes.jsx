@@ -7,6 +7,7 @@ import App from "../App";
 import RecipePage from "../pages/Shared/RecipePage/RecipePage";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <RecipePage></RecipePage>,
+                element: <PrivateRoute><RecipePage></RecipePage></PrivateRoute>,
                 loader: () => fetch('http://localhost:5000/categories')
 
             },
