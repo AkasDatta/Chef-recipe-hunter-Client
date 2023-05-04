@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Image, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import './Header.css';
 import { Link } from 'react-router-dom';
-import person4 from '../../../assets/person.jpg';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
-    const {user, logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleLogout = () => {
         logOut()
@@ -14,8 +13,16 @@ const Header = () => {
             .catch(error => console.log(error))
     }
 
+    const renderTooltip = () => {
+        return (
+          <Tooltip id="username-tooltip" style={{ color: 'red' }}>
+            {user.displayName}
+          </Tooltip>
+        );
+      };
+
     return (
-        <div>   
+        <div>
             <Navbar bg="dark" variant="dark" expand="md" fixed="top">
                 <Container>
                     <Navbar.Brand href="#home-section"><Link className='foodiee' as={Link} to="/">Foodiee _</Link></Navbar.Brand>
@@ -30,15 +37,22 @@ const Header = () => {
                             <Nav.Item>
                                 <Nav.Link as={Link} to="/blogs">Blog </Nav.Link>
                             </Nav.Item>
-                            {user && <Nav.Item>
-                                <Image className='header-img m-2' src={person4} />
-                            </Nav.Item>}
+
+                            {user && (
+                                <Nav.Item>
+                                    <OverlayTrigger placement="bottom" overlay={renderTooltip()}>
+                                        <img className="header-img m-2" src={user.photoURL} alt="" />
+                                    </OverlayTrigger>
+                                </Nav.Item>
+                            )}
+
                             <Nav.Item>
                                 {user ? 
-                                <Button onClick={handleLogout} variant="outline-success" className='px-4 mx-2'>Logout</Button>:
-                                <Link to="/login">
-                                    <Button variant="outline-success" className='px-4 mx-2'>Login</Button>
-                                </Link>}
+                                    <Button onClick={handleLogout} variant="outline-success" className='px-4 mx-2'>Logout</Button> :
+                                    <Link to="/login">
+                                        <Button variant="outline-success" className='px-4 mx-2'>Login</Button>
+                                    </Link>
+                                }
                             </Nav.Item>
                         </Nav>
                     </Navbar.Collapse>
