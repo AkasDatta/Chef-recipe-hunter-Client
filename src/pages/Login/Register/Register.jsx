@@ -10,6 +10,7 @@ const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const {createUser} = useContext(AuthContext);
+    const [accepted, setAccepted] = useState(false);
 
     const handleRegister = event => {
         event.preventDefault();
@@ -18,7 +19,7 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        
+
         //validate
         if(!/(?=.*[A-Z])/.test(password)){
             setError('Please add at least one uppercase');
@@ -41,7 +42,10 @@ const Register = () => {
                 console.log(error)
                 setError(error.message)
             })
+    }
 
+    const handleAccepted = event => {
+        setAccepted(event.target.checked)
     }
     return (
         <div>
@@ -72,12 +76,12 @@ const Register = () => {
 
                             <Row>
                                 <div className='d-flex' name='accept'>
-                                <input type="checkbox" defaultChecked />
-                                <span>I Agree to the <a href="#">terms and conditions</a></span>
+                                <input onClick={handleAccepted} type="checkbox" defaultChecked />
+                                <span>I Agree to the <Link to="/terms">terms and conditions</Link></span>
                                 </div>
                             </Row>
 
-                            <Button className='loginbutton' type="submit">Register Now</Button>
+                            <Button className='loginbutton' disabled={!accepted} type="submit">Register Now</Button>
 
                             <Form.Text className="text-success">
                                 {success}
