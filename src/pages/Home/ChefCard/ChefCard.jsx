@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardGroup, Col, Row } from 'react-bootstrap';
-import { FaArrowRight, FaThumbsUp } from 'react-icons/fa';
+import { Card, Col, Row } from 'react-bootstrap';
+import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({ categories }) => {

@@ -19,7 +19,7 @@ const Blogs = () => {
                 <Pdf targetRef={ref} options={options} filename="Blog_Questions_part1.pdf">
                 {({ toPdf }) => (
                     <Button onClick={toPdf} className="btn-danger m-5">
-                    Download Part 1 <FaArrowDown className="mx-1" />
+                    Download PDF <FaArrowDown className="mx-1" />
                     </Button>
                 )}
                 </Pdf>
