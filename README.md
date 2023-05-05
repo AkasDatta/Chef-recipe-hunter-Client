@@ -2,21 +2,28 @@
 
 # Project Title
 ## Foodiee _
-### Foodiee _ is a food related website. Where some chefs and some of their food recipes are given. We can see different foods there and visit the page by logging in.
+### Foodiee _ is a food related restaurant website. Where the identity of various chefs and their favorite recipes can be seen by logging in and registering on the website.
 
 ## Features
 - Home
-- Statistics
-- Applied Jobs
-- Job Details
 - Blog
+- Banner
+- Chef Card
+- Descriptions
+- Story
+- Client say
+- Footer
+- Login
+- Register
 
 ## Extentions used here
 - React Bootstrap
 - Fontawesome Icon
-- Toast
+- React Icon
+- React Toastify
 - React Router
 - React rating
+- React to PDF
 - etc
 
 ## server API
