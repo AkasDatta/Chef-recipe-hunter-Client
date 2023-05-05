@@ -1,9 +1,15 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
+import { FaArrowDown } from 'react-icons/fa';
+
 
 const Blogs = () => {
     return (
         <div className='container mt-5 mb-5 pt-5 pb-5'>
+            <div className='text-center m-5'>
+                <Button className='btn-danger'>Download PDF <FaArrowDown className='mx-1'></FaArrowDown></Button>
+            </div>
             <h2 className='text-success fw-bold mb-4'>Below are the answers to the questions:</h2>
             <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">

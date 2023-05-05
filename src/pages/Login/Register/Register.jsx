@@ -7,6 +7,7 @@ import googleImage from '../../../assets/google.png'
 import gitHubImage from '../../../assets/gitHub.png';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [show, setShow] = useState(false);
@@ -15,6 +16,7 @@ const Register = () => {
     const navigate = useNavigate();
     const {createUser, signInWithGoogle, signInWithGithub} = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
+    const from = location.state?.from?.pathname || '/';
 
     const handleRegister = event => {
         event.preventDefault();
@@ -23,6 +25,7 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+
 
         //validate
         if(!/(?=.*[A-Z])/.test(password)){
@@ -36,26 +39,42 @@ const Register = () => {
 
         console.log(name, photo, email, password);
         createUser(email, password)
-            .then(result => {
-                const createdUser = result.user;
-                console.log(createdUser)
-                setError('');
-                setSuccess('User has been created successfully');
-            })
-            .catch(error => {
-                console.log(error)
-                setError(error.message)
-            })
+        .then(result => {
+            const createdUser = result.user;
+            console.log(createdUser)
+            setError('');
+            setSuccess('User has been created successfully');
+            updateUserData(createdUser, name, photo); // pass createdUser object instead of createUser function
+            navigate(from, {replace: true});
+        })
+        .catch(error => {
+            console.log(error)
+            setError(error.message)
+        })
     }
+
+    const updateUserData = (user, name, photo) => {
+        updateProfile(user, {
+          displayName: name,
+          photoURL: `${photo}?t=${Date.now()}`
+        })
+        .then(() => {
+          // handle success
+        })
+        .catch(error => {
+          setError(error.message);
+        })
+      }
+      
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
         .then(result => {
             const loggedUser = result.user;
-            navigate(from, {replace: true});
-            console.log(loggedUser)
+            // console.log(loggedUser)
             setError('');
             setSuccess('User has been created successfully');
+            navigate(from, {replace: true});
         })
         .catch(error => {
             console.log(error)
@@ -66,10 +85,10 @@ const Register = () => {
         signInWithGithub()
         .then(result => {
             const user = result.user;
-            navigate(from, {replace: true});
-            console.log(user)
+            // console.log(user)
             setError('');
             setSuccess('User has been created successfully');
+            navigate(from, {replace: true});
         })
         .catch(error => {
             console.log(error)

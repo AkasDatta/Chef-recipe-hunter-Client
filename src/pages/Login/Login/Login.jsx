@@ -16,7 +16,7 @@ const Login = () => {
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    console.log('Login page location', location)
+    // console.log('Login page location', location)
     const from = location.state?.from?.pathname || '/';
 
 
