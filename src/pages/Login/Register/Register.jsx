@@ -141,7 +141,7 @@ const Register = () => {
                                 </div>
                             </Row>
 
-                            <Button className='loginbutton' disabled={!accepted} type="submit">Register Now</Button>
+                            <Button disabled={!accepted} type="submit">Register Now</Button>
 
                             <Form.Text className="text-success">
                                 {success}

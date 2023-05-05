@@ -22,7 +22,7 @@ const Header = () => {
       };
 
     return (
-        <div>
+        <div id='home'>
             <Navbar bg="dark" variant="dark" expand="md" fixed="top">
                 <Container>
                     <Navbar.Brand href="#home-section"><Link className='foodiee' as={Link} to="/">Foodiee _</Link></Navbar.Brand>

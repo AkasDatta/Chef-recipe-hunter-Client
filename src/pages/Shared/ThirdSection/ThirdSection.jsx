@@ -7,7 +7,7 @@ import person3 from '../../../assets/person-3.jpeg'
 
 const ThirdSection = () => {
     return (
-        <div>
+        <div id='client'>
             <section id="home-icon" className="py-5 text-center">
                 <h1 className='text-center fw-bold m-5 display-4' style={{color: '#52A015'}}>What people say</h1>
                 <Container>

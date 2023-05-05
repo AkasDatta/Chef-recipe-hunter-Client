@@ -104,7 +104,7 @@ const Login = () => {
                         }
                         </p>
 
-                        <Button className='loginbutton' type="submit">Login Now</Button> <br />
+                        <Button type="submit">Login Now</Button> <br />
 
                         <Form.Text className="text-success">
                             {success}
