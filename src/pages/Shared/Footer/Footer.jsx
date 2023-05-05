@@ -14,7 +14,7 @@ const Footer = () => {
                         <p>The restaurant was filled with the savory aroma of freshly prepared dishes as diners sat at cozy tables, eagerly anticipating their meals</p>
                         </Col>
                         <Col md={3} sm={6} xs={12} className="segment-two md-mb-30 sm-mb-30">
-                        <h2>Foodies Food</h2>
+                        <h2>Foodiees Food</h2>
                         <ul>
                             <li><a className='text-decoration-none text-success' href="#">Home</a></li>
                             <li><a className='text-decoration-none text-success' href="#">Support</a></li>
