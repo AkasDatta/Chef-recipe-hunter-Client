@@ -44,6 +44,7 @@ const router = createBrowserRouter([
             {
                 path: 'terms',
                 element: <Terms></Terms>
+                
             },
             {
                 path: '/category/:id',
