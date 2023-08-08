@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const ChefCard = ({ categories }) => {
   return (
     <div className='container'>
-      <Row xs={1} md={2} className="g-4">
+      <Row xs={1} md={2} lg={3} className="g-4">
         {categories.map(category => (
           <Col key={category.id}>
             <Card>

@@ -44,10 +44,10 @@ const Footer = () => {
                         <h2>Follow Us</h2>
                         <p> In a business context, getting in touch can be crucial for networking and building relationships with clients, partners, and colleagues. </p>
                         <div>
-                            <a href="https://www.facebook.com/" target="_blank"><FaFacebook className='fa' size={50} /></a>
-                            <a href="https://twitter.com/" target="_blank"><FaTwitter className='fa' size={50} /></a>
-                            <a href="https://www.linkedin.com/" target="_blank"><FaLinkedin className='fa' size={50} /></a>
-                            <a href="https://www.instagram.com/" target="_blank"><FaInstagram className='fa' size={50} /></a>
+                            <a href="https://www.facebook.com/" target="_blank"><FaFacebook className='fa mx-1 mb-3 text-primary' size={30} /></a>
+                            <a href="https://www.linkedin.com/" target="_blank"><FaLinkedin className='mx-1 mb-3' style={{color:"#0C64C5"}} size={30} /></a>
+                            <a href="https://www.instagram.com/" target="_blank"><FaInstagram className='fa mx-1 mb-3 text-danger' size={30} /></a>
+                            <a href="https://twitter.com/" target="_blank"><FaTwitter className='fa mx-1 mb-3 text-primary' size={30} /></a>
                         </div>
                         </Col>
                         <Col md={3} sm={6} xs={12} className="segment-four sm-mb-30">
